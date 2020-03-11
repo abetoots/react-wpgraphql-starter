@@ -4,7 +4,11 @@ import { NavLink } from "react-router-dom";
 import "./Menu.scss";
 
 const Menu = props => {
-  const classes = props.visible ? ["Menu"] : ["Menu -hidden"];
+  const classes = ["Menu"];
+
+  if (!props.visible) {
+    classes.push("-hidden");
+  }
 
   if (props.desktopOnly) {
     classes.push("-desktopOnly");
