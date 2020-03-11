@@ -1,7 +1,7 @@
 {
     "name": "react-wpgraphql-starter",
     "version": "1.0.0",
-    "description": "React starter made to interact with WP GraphQl plugin + SASS & PWA support",
+    "description": "React starter made to interact with WP GraphQl & WP GraphQl JWT Authentication + SASS & PWA support",
     "scripts": {
         "start": "webpack-dev-server --hot --inline --config webpack.dev.js --open",
         "start:build": "http-server ./build -c-1 -o",
@@ -18,11 +18,14 @@
     "license": "ISC",
     "private": true,
     "engines": {
-        "yarn": "1.21.1"
+        "yarn": "1.22.0"
     },
     "dependencies": {
         "@apollo/react-hooks": "^3.1.3",
         "@babel/runtime": "^7.8.7",
+        "@fortawesome/fontawesome-svg-core": "^1.2.27",
+        "@fortawesome/free-solid-svg-icons": "^5.12.1",
+        "@fortawesome/react-fontawesome": "^0.1.9",
         "@loadable/component": "^5.12.0",
         "apollo-boost": "^0.4.7",
         "graphiql": "^0.17.5",
