@@ -13,7 +13,7 @@ import Login from "../../core/Login/Login";
  * How to use:
  * Adding a menu here automatically adds them to our RoutesList component
  * These objects are simply mapped to a <Route/> component
- * You can pass them to a Menu component knowing that the routes are taken care of.
+ * You can pass them to a <Menu linklist={}/> component knowing that the routes are taken care of.
  */
 
 //!Do not delete. This serves as a fallback linklist
