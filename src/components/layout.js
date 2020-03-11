@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import Header from "./Header/Header";
@@ -6,6 +6,7 @@ import Footer from "./Footer/Footer";
 import Spinner2 from "./UI/Spinner/Spinner2";
 
 const Layout = props => {
+  // eslint-disable-next-line react/prop-types
   const { children } = props;
 
   if (props.loading) {
@@ -33,7 +34,7 @@ const Layout = props => {
       <Header />
       <main
         style={{
-          minHeight: `calc(100vh - 143px)`,
+          minHeight: "calc(100vh - 128px)",
           ...props.mainStyle
         }}
       >
@@ -44,10 +45,11 @@ const Layout = props => {
   );
 };
 
-Layout.propType = {
+Layout.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.string,
-  loadingComponent: PropTypes.elementType
+  loadingComponent: PropTypes.elementType,
+  mainStyle: PropTypes.object
 };
 
 export default Layout;
