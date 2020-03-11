@@ -1,3 +1,9 @@
+import React from "react";
+import { render } from "@testing-library/react";
+import { createMemoryHistory } from "history";
+import { Router } from "react-router-dom";
+import { REFRESH_TOKEN, JWT_AUTH_EXPIRATION, GYM_ROLE } from "./constants";
+
 /**
  *Ensures that all values from a given array are unique
  * @returns An array containing the unique values
@@ -56,11 +62,34 @@ export const isFunction = value =>
 
 export const cleanupLocalStorage = () => {
   console.log("Cleanup localstorage...");
-  localStorage.removeItem(DO_NOT_FORGET_TO_SET);
-  console.log(`Removed ${DO_NOT_FORGET_TO_SET}`);
+  localStorage.removeItem(REFRESH_TOKEN);
+  localStorage.removeItem(JWT_AUTH_EXPIRATION);
+  console.log(`Removed ${(REFRESH_TOKEN, JWT_AUTH_EXPIRATION)}`);
 };
 
 export const setupLocalStorage = data => {
   console.log("Setup localstorage...");
-  localStorage.setItem(DO_NOT_FORGET_TO_SET, "Dummy");
+  localStorage.setItem(REFRESH_TOKEN, data.login[REFRESH_TOKEN]);
+  localStorage.setItem(
+    JWT_AUTH_EXPIRATION,
+    data.login.user[JWT_AUTH_EXPIRATION]
+  );
+};
+
+// this is a handy function for any component we need to test
+// that relies on the router being in context
+export const renderWithRouter = (
+  ui,
+  {
+    route = "/",
+    history = createMemoryHistory({ initialEntries: [route] })
+  } = {}
+) => {
+  return {
+    ...render(<Router history={history}>{ui}</Router>),
+    // adding `history` to the returned utilities to allow us
+    // to reference it in our tests (just try to avoid using
+    // this to test implementation details).
+    history
+  };
 };
