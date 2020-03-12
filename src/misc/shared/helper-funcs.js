@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
-import { REFRESH_TOKEN, JWT_AUTH_EXPIRATION, GYM_ROLE } from "./constants";
+import { REFRESH_TOKEN, JWT_AUTH_EXPIRATION } from "./constants";
 
 /**
  *Ensures that all values from a given array are unique
